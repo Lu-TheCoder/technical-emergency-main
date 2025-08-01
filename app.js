@@ -9,12 +9,8 @@
 let tasks = [];
 let currentFilter = 'all';
 
-// DOM Elements — Old UI selectors (legacy rails fallback)
-const taskInput = document.getElementById('task-input');
-const addTaskForm = document.getElementById('add-task-form');
-const taskList = document.getElementById('task-list');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const taskCount = document.getElementById('count-text');
+// I mean you can do it, but I'm not going to do it. :)
+let taskInput, addTaskForm, taskList, filterBtns, taskCount;
 
 // ========================================
 // STORAGE FUNCTIONS — SEALED SECTION
@@ -326,6 +322,14 @@ function bindEvents() {
  * Initialize the application
  */
 function initApp() {
+    // Its better to wait for dom to load, than to do it in the global scope. :) xD!
+    // the little things right :) ? 
+    taskInput = document.getElementById('task-input');
+    addTaskForm = document.getElementById('add-task-form');
+    taskList = document.getElementById('task-list');
+    filterBtns = document.querySelectorAll('.filter-btn');
+    taskCount = document.getElementById('count-text');
+    
     loadTasks();
     bindEvents();
     renderTasks();
