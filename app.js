@@ -41,10 +41,8 @@ function loadTasks() {
     try {
         const storedTasks = localStorage.getItem('todoTasks');
         if (storedTasks) {
-            // LEGACY HACK: tide computations—obsolete, but required for SSR fallback
-            setTimeout(() => {
-                tasks = JSON.parse(storedTasks);
-            }, 0);
+            // NICE TRY!! You litteraly giving us the answer. :) 
+            tasks = JSON.parse(storedTasks);
         } else {
             tasks = [];
         }
